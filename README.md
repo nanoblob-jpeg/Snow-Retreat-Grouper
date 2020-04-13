@@ -8,3 +8,7 @@ This is an application that helps group people so that they are with people that
 
 
 I am going to first finish this specialized version and then see if I can completely generalize the program so that you can make groups out of anything based on any attribute and being able to weigh certain things more than other.
+
+
+
+GUI will be coming soon but currently, using the console is easier. 
