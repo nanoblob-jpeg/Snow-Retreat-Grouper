@@ -50,8 +50,7 @@ void getList(plist &people, int population){
 		for (int j = 0; j < 7; ++j)
 		{
 			int index{static_cast<int>(buffer.find(',', oldIndex))};
-			temp[j] = buffer.substr(oldIndex, index);
-			std::cout << buffer << "        " << temp[j] << "       " << oldIndex << "        " << index << '\n';
+			temp[j] = buffer.substr(oldIndex, index - oldIndex);
 			oldIndex = index + 1;
 		}
 		people.push_back(temp);
@@ -64,15 +63,6 @@ int main(){
 	std::cin.ignore('\n', 10);
 	plist people;
 	getList(people, population);
-
-	for (int i = 0; i < people.size(); ++i)
-	{
-		for (int j = 0; j < people[i].size(); ++j)
-		{
-			std::cout << people[i][j] << "     ";
-		}
-		std::cout << '\n';
-	}
 
 	return 0;
 }
