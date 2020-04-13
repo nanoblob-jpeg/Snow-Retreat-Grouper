@@ -8,6 +8,9 @@ using plist = std::vector<std::vector<std::string>>;
 using p = std::vector<std::string>;
 
 std::vector<std::string> cabinNames{"Tanager", "Woodpecker", "Calliope", "Stellar Jay", "Cabin 3", "Cabin 4", "Cabin 5", "Cabin 6", "Cabin 7", "Cabin 8", "Cabin 11", "Cabin 12", "Cabin 13"};
+std::vector<std::string> girlCabins{"Calliope", "Stellar Jay", "Cabin 8", "Cabin 11", "Cabin 12", "Cabin 13"};
+std::vector<std::string> boyCabins{"Tanager", "Woodpecker", "Cabin 3", "Cabin 4", "Cabin 5", "Cabin 6", "Cabin 7"};
+
 std::map<std::string, int> spacesPerCabin{
 		{"Tanager", 9},
 		{"Woodpecker", 9},
@@ -23,4 +26,7 @@ std::map<std::string, int> spacesPerCabin{
 		{"Cabin 12", 10},
 		{"Cabin 13", 10}
 };
+
+//cabinname, vector of people's name
+std::map<std::string, std::vector<std::string>> output;
 #endif

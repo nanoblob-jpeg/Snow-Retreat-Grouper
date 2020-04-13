@@ -1,5 +1,7 @@
 #include "setup.h"
 #include "constants.h"
+#include "group.h"
+#include "output.h"
 /*
 BOYS
 ============
@@ -48,8 +50,10 @@ int main(){
 			girls.push_back(people[i]);
 	}
 
+	group(girls, girlCabins);
+	group(guys, boyCabins);
 
-
+	writeFile();
 
 	return 0;
 }
