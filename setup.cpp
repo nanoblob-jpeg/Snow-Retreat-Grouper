@@ -74,21 +74,21 @@ void createObjects(plist &people, olist &objects){
 		if(people[i][3] != " "){
 			for (int j = 0; j < objects.size(); ++j)
 			{
-				if(objects[j]->name == people[i][3])
+				if(objects[j]->name == people[i][3] && (objects[j]->grade == std::stoi(people[i][1]) || objects[j]->grade == std::stoi(people[i][1]) - 1))
 					objects[i]->one = objects[j];
 			}
 		}
 		if(people[i][4] != " "){
 			for (int j = 0; j < objects.size(); ++j)
 			{
-				if(objects[j]->name == people[i][4])
+				if(objects[j]->name == people[i][4] && (objects[j]->grade == std::stoi(people[i][1]) || objects[j]->grade == std::stoi(people[i][1]) - 1))
 					objects[i]->two = objects[j];
 			}
 		}
 		if(people[i][5] != " "){
 			for (int j = 0; j < objects.size(); ++j)
 			{
-				if(objects[j]->name == people[i][5])
+				if(objects[j]->name == people[i][5] && (objects[j]->grade == std::stoi(people[i][1]) || objects[j]->grade == std::stoi(people[i][1]) - 1))
 					objects[i]->three = objects[j];
 			}
 		}

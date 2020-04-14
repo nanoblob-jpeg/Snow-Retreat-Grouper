@@ -49,7 +49,17 @@ int main(){
 		else
 			girls.push_back(people[i]);
 	}
+	//todo add error checking for the sizes of the girl and boy lists
+	/*
+	
 
+
+
+
+
+
+	
+	 */
 	olist ogirls;
 	createObjects(girls, ogirls);
 	
