@@ -1,5 +1,5 @@
-#include "setup.h"
 #include "constants.h"
+#include "setup.h"
 #include "group.h"
 #include "output.h"
 /*
@@ -36,13 +36,13 @@ int main(){
 	//finding spaces left in each cabin
 	setSpacesPerCabin(spacesPerCabin, counselorsPerCabin);
 
+	std::cin.ignore('\n', 10);
 	//creating list of the participants
 	plist people;
 	getList(people, population);
 
-
 	plist girls, guys;
-	for (int i = 0; i < people.size(); ++i)
+	for (int i = 0; i < population; ++i)
 	{
 		if(!people[i][2].compare("M"))
 			guys.push_back(people[i]);
@@ -50,10 +50,24 @@ int main(){
 			girls.push_back(people[i]);
 	}
 
-	group(girls, girlCabins);
-	group(guys, boyCabins);
+	olist ogirls;
+	createObjects(girls, ogirls);
+	for (int i = 0; i < ogirls.size(); ++i)
+	{
+		std::cout << ogirls[i]->name;
+		if(ogirls[i]->one)
+			std::cout <<"1"<< ogirls[i]->one->name;
+		if(ogirls[i]->two)
+			std::cout << "2"<<ogirls[i]->two->name;
+		if(ogirls[i]->three)
+			std::cout <<"3"<< ogirls[i]->three->name;
+	}
 
-	writeFile();
+
+	// group(girls, girlCabins);
+	// group(guys, boyCabins);
+
+	// writeFile();
 
 	return 0;
 }

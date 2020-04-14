@@ -1,5 +1,5 @@
 #include "constants.h"
-
+#include <algorithm>
 
 int getNumberOfParticipants(){
 	int i{};
@@ -61,3 +61,43 @@ void setSpacesPerCabin(std::map<std::string, int> &spacesPerCabin, std::map<std:
 			spacesPerCabin[cabinNames[i]] -= counselorsPerCabin[cabinNames[i]];
 	}
 }
+
+void createObjects(plist &people, olist &objects){
+	//Jason Chang,10,M,John Lu,Jacob Zhang,Daniel Xu,N
+	for (int i = 0; i < people.size(); ++i)
+	{
+		objects.push_back(new Person(people[i][0], std::stoi(people[i][1])));
+	}
+
+	for (int i = 0; i < people.size(); ++i)
+	{
+		if(people[i][3] != " "){
+			for (int j = 0; j < objects.size(); ++j)
+			{
+				if(objects[j]->name == people[i][3])
+					objects[i]->one = objects[j];
+			}
+		}
+		if(people[i][4] != " "){
+			for (int j = 0; j < objects.size(); ++j)
+			{
+				if(objects[j]->name == people[i][4])
+					objects[i]->two = objects[j];
+			}
+		}
+		if(people[i][5] != " "){
+			for (int j = 0; j < objects.size(); ++j)
+			{
+				if(objects[j]->name == people[i][5])
+					objects[i]->three = objects[j];
+			}
+		}
+		
+	}
+}
+
+
+
+// Jason Chang,10,F,Lucy Jin,Jacob Zhang,Daniel Xu,N
+// Lucy Jin,12,F,Jason Chang,Caroline Li,Amy Bing,Y
+// Amy Bing,11,F,Jacbo ni,sing son,thing ni,N
