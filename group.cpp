@@ -1,6 +1,7 @@
 #include "constants.h"
 #include <set>
 #include <algorithm>
+#include "output.h"
 
 std::vector<Person*> compress(std::vector<std::vector<std::set<Person*>>> &uncompOutput){
 	//std::vector<std::vector<std::set<Person*>>> uncompOutput
@@ -17,18 +18,80 @@ std::vector<Person*> compress(std::vector<std::vector<std::set<Person*>>> &uncom
 	return output;
 }
 
-void assignCabins(std::vector<Person*> &input){
-	int spacesFree{};
-	for (int i = 0; i < boyCabins.size(); ++i)
+int calculatescore(std::vector<int> &counter, std::vector<Person*> &input, std::vector<std::string> &cabins){
+	std::map<std::string, int> tempSpacesPerCabin = spacesPerCabin;
+	//adjusting the sizes of the cabins
+	for (int i = 0; i < counter.size(); ++i)
 	{
-		spacesFree += spacesPerCabin[boyCabins[i]];
+		--tempSpacesPerCabin[cabins[counter[i]]];
+	}
+	int track{};
+	int score{};
+	for(int i{}; i < cabins.size(); ++i){
+		std::vector<Person*> temp(cabins[i].size());
+		//adding people to the cabins
+		for(int j{}; j < tempSpacesPerCabin[cabins[i]]; ++j){
+			temp.push_back(input[track]);
+			++track;
+		}
+
+		//adding to score with biases for grade levels
+		for (int i = 0; i < temp.size(); ++i)
+		{
+			score += bias[cabins[i]][12-temp[i]->grade];
+		}
+
+		//adding to score with number of connections within cabin
+		for (int i = 0; i < temp.size(); ++i)
+		{
+			if(temp.end() != std::find_if(temp.begin(), temp.end(), [&](Person *p){
+				return p->name == temp[i]->one->name;
+			}))
+				score += 2;
+			if(temp.end() != std::find_if(temp.begin(), temp.end(), [&](Person *p){
+				return p->name == temp[i]->two->name;
+			}))
+				score += 2;
+			if(temp.end() != std::find_if(temp.begin(), temp.end(), [&](Person *p){
+				return p->name == temp[i]->three->name;
+			}))
+				score += 2;
+		}
+	}
+	return score;
+}
+
+void assignCabins(std::vector<Person*> &input, std::vector<std::string> &cabins){
+	int spacesFree{};
+	int max{};
+	for (int i = 0; i < cabins.size(); ++i)
+	{
+		spacesFree += spacesPerCabin[cabins[i]];
 	}
 	spacesFree = std::abs(spacesFree - (int)input.size());
 
-	
+	std::vector<int> counter(spacesFree);
+	std::vector<int> maxVec(spacesFree);
+	while(spacesFree > 0 && counter[0] != cabins.size() - 1){
+		for (int i = 0; i < counter.size(); ++i)
+		{
+			if(counter[counter.size() - 1 - i] == cabins.size() - 1){
+				++counter[counter.size() - i-2];
+				counter[counter.size() - 1 - i] = counter[counter.size() - i-2];
+			} else{
+				++counter[counter.size() - 1];
+			}
+		}
 
+		if(max < calculatescore(counter, input, cabins)){
+			for (int i = 0; i < counter.size(); ++i)
+			{
+				maxVec[i] = counter[i];
+			}
+		};
+	}
 
-
+	writeFile(input, cabins, maxVec);
 }
 
 void group(olist &people,std::vector<std::string> &cabins){
@@ -107,5 +170,5 @@ void group(olist &people,std::vector<std::string> &cabins){
 	}
 
 	std::vector<Person*> compOutput{compress(uncompOutput)};
-	assignCabins(compOutput);
+	assignCabins(compOutput, cabins);
 };

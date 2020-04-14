@@ -1,7 +1,7 @@
 #include "constants.h"
 #include "setup.h"
 #include "group.h"
-#include "output.h"
+#include <fstream>
 /*
 BOYS
 ============
@@ -26,6 +26,9 @@ Cabin 13 - 10
 
 
 int main(){
+	std::ofstream outf{"output.txt", std::ofstream::trunc};
+	outf.close();
+
 	int population{getNumberOfParticipants()};
 	std::cin.ignore('\n', 10);
 
@@ -58,7 +61,7 @@ int main(){
 
 
 
-	
+
 	 */
 	olist ogirls;
 	createObjects(girls, ogirls);
@@ -68,8 +71,6 @@ int main(){
 
 	group(ogirls, girlCabins);
 	group(oguys, boyCabins);
-
-	// writeFile();
 
 	return 0;
 }

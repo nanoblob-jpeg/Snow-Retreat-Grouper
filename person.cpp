@@ -20,5 +20,10 @@ public:
 	friend bool operator==(const Person &p1, const Person &p2){
 		return (p1).name == (p2).name;
 	}
+
+	friend std::ostream& operator<<(std::ostream &out, Person *person){
+		out << person->name;
+		return out;
+	}
 };
 #endif

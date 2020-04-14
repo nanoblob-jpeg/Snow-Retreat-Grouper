@@ -1,6 +1,9 @@
 #ifndef OUTPUT
 #define OUTPUT
-void writeFile();
+#include "constants.h"
+
+
+void writeFile(std::vector<Person*> &input, std::vector<std::string> &cabins, std::vector<int> &maxVec);
 
 
 #endif

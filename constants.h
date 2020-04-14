@@ -30,6 +30,23 @@ inline std::map<std::string, int> spacesPerCabin{
 		{"Cabin 13", 10}
 };
 
+//biases for grades per cabin, vector includes 12,11,10,9,8,7,6
+inline std::map<std::string, std::vector<int>> bias{
+		{"Tanager", {20,10,1,0,0,-50,-50}},
+		{"Woodpecker", {18,8,0,0,0,-50,-50}},
+		{"Calliope", {20,10,1,0,0,-50,-50}},
+		{"Stellar Jay", {18,8,0,0,0,-50,-50}},
+		{"Cabin 3", {8,7,5,4,0,0,0}},
+		{"Cabin 4", {-5,-3,2,3,6,10,10}},
+		{"Cabin 5", {-5,-3,2,3,6,6,6}},
+		{"Cabin 6", {-5,-3,2,3,6,6,6}},
+		{"Cabin 7", {8,7,5,4,0,0,0}},
+		{"Cabin 8", {8,7,5,4,0,0,0}},
+		{"Cabin 11", {-5,-3,2,3,6,6,6}},
+		{"Cabin 12", {-5,-3,2,3,6,6,6}},
+		{"Cabin 13", {-5,-3,2,3,6,10,10}}
+};
+
 //cabinname, vector of people's name
 inline std::map<std::string, std::vector<std::string>> output;
 #endif
