@@ -16,5 +16,9 @@ public:
 		two = nullptr;
 		three = nullptr;
 	}
+
+	friend bool operator==(const Person &p1, const Person &p2){
+		return (p1).name == (p2).name;
+	}
 };
 #endif

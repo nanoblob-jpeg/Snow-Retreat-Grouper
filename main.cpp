@@ -52,20 +52,12 @@ int main(){
 
 	olist ogirls;
 	createObjects(girls, ogirls);
-	for (int i = 0; i < ogirls.size(); ++i)
-	{
-		std::cout << ogirls[i]->name;
-		if(ogirls[i]->one)
-			std::cout <<"1"<< ogirls[i]->one->name;
-		if(ogirls[i]->two)
-			std::cout << "2"<<ogirls[i]->two->name;
-		if(ogirls[i]->three)
-			std::cout <<"3"<< ogirls[i]->three->name;
-	}
+	
+	olist oguys;
+	createObjects(guys, oguys);
 
-
-	// group(girls, girlCabins);
-	// group(guys, boyCabins);
+	group(ogirls, girlCabins);
+	group(oguys, boyCabins);
 
 	// writeFile();
 

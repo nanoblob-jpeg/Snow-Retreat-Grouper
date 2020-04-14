@@ -97,7 +97,7 @@ void createObjects(plist &people, olist &objects){
 }
 
 
-
+//test case
 // Jason Chang,10,F,Lucy Jin,Jacob Zhang,Daniel Xu,N
 // Lucy Jin,12,F,Jason Chang,Caroline Li,Amy Bing,Y
 // Amy Bing,11,F,Jacbo ni,sing son,thing ni,N
