@@ -66,10 +66,23 @@ int main(){
 	 */
 	olist ogirls;
 	createObjects(girls, ogirls);
-	std::cout << ogirls.size();
+	
 	olist oguys;
 	createObjects(guys, oguys);
-	std::cout << oguys.size();
+	
+	for (int i = 0; i < ogirls.size(); ++i)
+	{
+		std::cout << ogirls[i]<<"1)";
+		if(ogirls[i]->one)
+			std::cout << ogirls[i]->one;
+		std::cout << "    2)";
+		if(ogirls[i]->two)
+			std::cout << ogirls[i]->two;
+		std::cout << "    3)";
+		if(ogirls[i]->three)
+			std::cout << ogirls[i]->three;
+		std::cout << '\n';
+	}
 
 	std::cout << "created objects";
 	group(ogirls, girlCabins);

@@ -114,18 +114,16 @@ void group(olist &people,std::vector<std::string> &cabins){
 		temp.insert(people[0]);
 		people.erase(people.begin());
 		print(temp);
-		for (int i = 0; i < temp.size(); ++i)
+		for (auto itr = temp.begin(); itr != temp.end(); ++itr)
 		{
-			std::cout << i << " " << temp.size() << " " << groups.size() << " ";
+			std::cout << *itr << " " << temp.size() << " " << groups.size() << "   " << people.size() << "   ";
 			print(temp);
-			auto it = temp.begin();
-			if(i != 0)
-				std::advance(it, i);
-			if((*it)->one){
-				temp.insert((*it)->one);
+			std::cout << '\n';
+			if((*itr)->one){
+				temp.insert((*itr)->one);
 				for (int j = 0; j < people.size(); ++j)
 				{
-					if((*it)->one->name == people[j]->name){
+					if((*itr)->one->name == people[j]->name){
 						people.erase(people.begin() + j);
 						break;
 					}
@@ -134,11 +132,11 @@ void group(olist &people,std::vector<std::string> &cabins){
 				// 	return p->name == (*it)->one->name;
 				// }));
 			}
-			if((*it)->two){
-				temp.insert((*it)->two);
+			if((*itr)->two){
+				temp.insert((*itr)->two);
 				for (int j = 0; j < people.size(); ++j)
 				{
-					if((*it)->two->name == people[j]->name){
+					if((*itr)->two->name == people[j]->name){
 						people.erase(people.begin() + j);
 						break;
 					}
@@ -147,11 +145,11 @@ void group(olist &people,std::vector<std::string> &cabins){
 				// 	return p->name == (*it)->two->name;
 				// }));
 			}
-			if((*it)->three){
-				temp.insert((*it)->three);
+			if((*itr)->three){
+				temp.insert((*itr)->three);
 				for (int j = 0; j < people.size(); ++j)
 				{
-					if((*it)->three->name == people[j]->name){
+					if((*itr)->three->name == people[j]->name){
 						people.erase(people.begin() + j);
 						break;
 					}
@@ -345,6 +343,17 @@ void group(olist &people,std::vector<std::string> &cabins){
 		uncompOutput.push_back(gofg);
 	}
 	std::cout << "made it through second";
+	std::cout << "\n\n\n\n\n\n";
+	for(int i{}; i < uncompOutput.size(); ++i){
+		for(int j{}; j < uncompOutput[i].size(); ++j){
+			for(int k{}; k < uncompOutput[i][j].size(); ++k){
+				auto it = uncompOutput[i][j].begin();
+				std::advance(it, k);
+				std::cout << (*it)->name;
+			}
+		}
+	}
+
 
 	std::vector<std::shared_ptr<Person>> compOutput{compress(uncompOutput)};
 	assignCabins(compOutput, cabins);

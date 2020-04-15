@@ -49,7 +49,7 @@ Jayson Lee,12,M,Charlie Yi,Paul Zhao,Joshua Mei,N
 Ethan Auyeung,11,M,Caden Chou, , ,Y
 Katherine Li,11,F,Jenny Tseng,Angela Wang,Samantha Li,N
 Benjamin Nie,6,M,James Yu,Simon Jin,Albert Li,Y
-Jacob Nie,12,Male, , , ,N
+Jacob Nie,12,M, , , ,N
 Gabriel Liu,7,M, , , ,N
 James Yu,6,M,Benjamin Nie,Simon Jin,Albert Zhang,Y
 Jeannine Yu,8,F,Sarah Jin,Crystal Lu,Laura Zhou,N
