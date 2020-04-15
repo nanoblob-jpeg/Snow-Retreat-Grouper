@@ -3,7 +3,7 @@
 #include "constants.h"
 
 
-void writeFile(std::vector<Person*> &input, std::vector<std::string> &cabins, std::vector<int> &maxVec);
+void writeFile(std::vector<std::shared_ptr<Person>> &input, std::vector<std::string> &cabins, std::vector<int> &maxVec);
 
 
 #endif

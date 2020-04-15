@@ -1,7 +1,7 @@
 #include "constants.h"
 #include <fstream>
 
-void writeFile(std::vector<Person*> &input, std::vector<std::string> &cabins,std::vector<int> &maxVec){
+void writeFile(std::vector<std::shared_ptr<Person>> &input, std::vector<std::string> &cabins,std::vector<int> &maxVec){
 
 	std::ofstream outf{"output.txt", std::ofstream::app};
 	std::map<std::string, int> tempSpacesPerCabin = spacesPerCabin;

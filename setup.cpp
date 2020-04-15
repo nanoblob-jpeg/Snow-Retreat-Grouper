@@ -66,7 +66,7 @@ void createObjects(plist &people, olist &objects){
 	//Jason Chang,10,M,John Lu,Jacob Zhang,Daniel Xu,N
 	for (int i = 0; i < people.size(); ++i)
 	{
-		objects.push_back(new Person(people[i][0], std::stoi(people[i][1])));
+		objects.push_back(std::make_shared<Person>(Person(people[i][0], std::stoi(people[i][1]))));
 	}
 
 	for (int i = 0; i < people.size(); ++i)
@@ -92,7 +92,6 @@ void createObjects(plist &people, olist &objects){
 					objects[i]->three = objects[j];
 			}
 		}
-		
 	}
 }
 
