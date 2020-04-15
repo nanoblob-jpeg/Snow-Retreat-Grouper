@@ -7,8 +7,16 @@ This is an application that helps group people so that they are with people that
 - cabins are hard coded in
 
 
-I am going to first finish this specialized version and then see if I can completely generalize the program so that you can make groups out of anything based on any attribute and being able to weigh certain things more than other.
+A generalization of sorts with this many connections is something that I am not ready to tacklet yet, so this project is going to stay like this. Instructions on how to use it follow:
+
+When prompted for the number of participants, you MUST give the exact number. This is the number of participants not counting counselors.
 
 
+Next, the program will prompt you for how many counselors are going to be inside each of the cabins.
 
-GUI will be coming soon but currently, using the console is easier. 
+
+Finally, you will be asked to insert a list of participants. They MUST be in the right format or else the program WILL NOT work. All names for the same people need to be spelled the same or else this program WILL NOT work.
+
+John Smith,10,M,Tom Doe,Mike Senior,Alex Dumas,N
+(FirstName LastName,Grade,Gender(M/F),FirstName LastName,FirstName LastName,FirstName LastName,FirstTime(Y/N))
+
