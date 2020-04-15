@@ -52,7 +52,7 @@ int main(){
 		else
 			girls.push_back(people[i]);
 	}
-	std::cout <<"separated lists";
+	std::cout <<"separated lists\n";
 	//todo add error checking for the sizes of the girl and boy lists
 	/*
 	
@@ -69,22 +69,9 @@ int main(){
 	
 	olist oguys;
 	createObjects(guys, oguys);
-	
-	for (int i = 0; i < ogirls.size(); ++i)
-	{
-		std::cout << ogirls[i]<<"1)";
-		if(ogirls[i]->one)
-			std::cout << ogirls[i]->one;
-		std::cout << "    2)";
-		if(ogirls[i]->two)
-			std::cout << ogirls[i]->two;
-		std::cout << "    3)";
-		if(ogirls[i]->three)
-			std::cout << ogirls[i]->three;
-		std::cout << '\n';
-	}
 
-	std::cout << "created objects";
+	std::cout << "created objects\n";
+
 	group(ogirls, girlCabins);
 	group(oguys, boyCabins);
 

@@ -5,7 +5,7 @@
 
 class Person{
 public:
-	int grade{};
+	int grade;
 	std::string name;
 	std::shared_ptr<Person> one;
 	std::shared_ptr<Person> two;

@@ -16,6 +16,7 @@ void getList(plist &people, int population){
 	std::cout << "Format: FirstName LastName, GradeLevel, Gender(M/F), FirstRequenst, SecondRequest, ThirdRequest, first time(Y/N)\n";
 	std::cout << "Jason Chang,10,M,John Lu,Jacob Zhang,Daniel Xu,N\n";
 	std::cout << "Lucy Jin,12,F,Claire Wong,Caroline Li,Amy Bing,Y\n";
+	std::cout << "=======================================================\n";
 	for (int i{}; i < population; ++i)
 	{
 		int oldIndex{0};

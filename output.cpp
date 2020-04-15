@@ -15,9 +15,10 @@ void writeFile(std::vector<std::shared_ptr<Person>> &input, std::vector<std::str
 	for (int i = 0; i < cabins.size(); ++i)
 	{
 		outf << cabins[i] << ": ";
-		for (int i = 0; i < tempSpacesPerCabin[cabins[i]]; ++i)
+		for (int j = 0; j < tempSpacesPerCabin[cabins[i]]; ++j)
 		{
 			outf << input[track] << ", ";
+			++track;
 		}
 		outf << '\n';
 	}
